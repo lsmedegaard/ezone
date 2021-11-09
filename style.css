@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #3f3f50;
+}
+
+@font-face {
+  font-family: shapiroLight;
+  src: url(fonts/shapiroLight.otf);
+}
+@font-face {
+  font-family: shapiroBold;
+  src: url(fonts/shapiroFeather.otf);
+}
+
+@font-face {
+  font-family: shapiroAir;
+  src: url(/fonts/shapiroAir.ttf);
+}
+
+h1 {
+  font-family: shapiroAir;
+}
+
+form {
+  width: 300px;
+  margin: auto;
+  background-color: #3f3f50;
+}
+
+input {
+  height: 25px;
+  margin-bottom: 20px;
+}
+
+.next {
+  width: 50%;
+}
+
+#identity {
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  all: unset;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 9px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
