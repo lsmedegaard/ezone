@@ -26,6 +26,7 @@ body {
 }
 
 h1 {
+  font-size: 3rem;
   font-family: uniform;
   font-weight: weight(regular);
   text-align: center;
@@ -39,6 +40,7 @@ form {
   background-color: v.$background-color;
   font-family: shapiro-regular;
 }
+
 #identity {
   display: flex;
   flex-direction: column;
@@ -49,15 +51,11 @@ form {
     border-bottom: 1px solid #00000063;
     color: rgba(0, 0, 0, 0.671);
     transition: transition(fast);
-    &[type="email"]:valid,
-    &[type="text"]:valid,
-    &[type="password"]:valid {
-      border-bottom: 1px solid #2bff0063;
+    &:valid {
+      border-color: #2bff0063;
     }
-    &[type="email"]:invalid,
-    &[type="text"]:invalid,
-    &[type="password"]:invalid {
-      border-bottom: 1px solid #ff000063;
+    &:invalid:focus {
+      border-color: #ff000063;
     }
   }
   & label,
@@ -136,6 +134,8 @@ fieldset {
       grid-area: 1/1;
       z-index: 100;
       color: white;
+      font-size: 1.5rem;
+      pointer-events: none;
     }
   }
 }
