@@ -1,3 +1,14 @@
+@use "/variables" as v;
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+);
+
+// @function weight($weight-name) {
+//   @return map-get($font-weights, $weight-name);
+// }
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +16,7 @@
 }
 
 html {
-  background-color: #3f3f50;
+  background-color: v.$background-color;
 }
 
 @font-face {
@@ -23,9 +34,10 @@ body {
 
 h1 {
   font-family: shapiro;
+  font-weight: map-get($font-weights, regular);
   text-align: center;
   margin: 50px auto;
-  color: #c3daffb3;
+  color: v.$text-color;
 }
 
 form {
@@ -37,55 +49,51 @@ form {
 #identity {
   display: flex;
   flex-direction: column;
-}
-
-#identity label,
-#identity span {
-  color: #c3daffb3;
-}
-
-#identity input[type="email"]:valid,
-#identity input[type="text"]:valid,
-#identity input[type="password"]:valid {
-  border-bottom: 1px solid #2bff0063;
-}
-
-#identity input[type="email"]:invalid,
-#identity input[type="text"]:invalid,
-#identity input[type="password"]:invalid {
-  border-bottom: 1px solid #ff000063;
-}
-
-#identity input {
-  all: unset;
-  height: 25px;
-  margin-bottom: 40px;
-  border-bottom: 1px solid #00000063;
-  color: rgba(0, 0, 0, 0.671);
-  transition: 0.3s;
+  & input {
+    all: unset;
+    height: 25px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #00000063;
+    color: rgba(0, 0, 0, 0.671);
+    transition: 0.3s;
+    &[type="email"]:valid,
+    &[type="text"]:valid,
+    &[type="password"]:valid {
+      border-bottom: 1px solid #2bff0063;
+    }
+    &[type="email"]:invalid,
+    &[type="text"]:invalid,
+    &[type="password"]:invalid {
+      border-bottom: 1px solid #ff000063;
+    }
+  }
+  & label,
+  & span {
+    color: #c3daffb3;
+  }
+  & span {
+    font-size: 0.8rem;
+    opacity: 50%;
+  }
 }
 
 .next {
   all: unset;
   cursor: pointer;
   width: 35%;
-  border: 1px solid rgba(0, 255, 0, 0.637);
+  border: 1px solid v.$button-color;
   border-radius: 10px;
   text-align: center;
-  color: rgba(0, 255, 0, 0.637);
+  color: v.$button-color;
   transition: 0.3s;
+
+  &:hover {
+    border-color: rgba(0, 175, 0, 0);
+    background: v.$button-color;
+    color: #3f3f50;
+  }
 }
 
-.next:hover {
-  border-color: rgba(0, 175, 0, 0);
-  background: rgba(0, 255, 0, 0.637);
-  color: #3f3f50;
-}
-
-span {
-  font-size: 0.8rem;
-  opacity: 50%;
-}
 fieldset {
   all: unset;
 }
@@ -211,4 +219,10 @@ input[type="checkbox"] label {
 
 #wrapper_platform {
   background-image: url(/Images/types/platform.png);
+}
+
+/* GAMES BILLEDER */
+
+#wrapper_csgo {
+  background-image: url(/Images/games/csgo.jpg);
 }
