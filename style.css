@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -9,7 +10,15 @@ html {
 
 @font-face {
   font-family: shapiro;
-  src: url(fonts/ezone-webfonts/sharpiro-regular.woff2);
+  src: url(/fonts/uniform-pro-con-black.woff2);
+}
+@font-face {
+  font-family: shapiro-regular;
+  src: url(/fonts/sharpiro-regular.woff2);
+}
+
+body {
+  margin-bottom: 200px;
 }
 
 h1 {
@@ -23,8 +32,8 @@ form {
   width: 300px;
   margin: auto;
   background-color: #3f3f50;
+  font-family: shapiro-regular;
 }
-
 #identity {
   display: flex;
   flex-direction: column;
@@ -33,14 +42,6 @@ form {
 #identity label,
 #identity span {
   color: #c3daffb3;
-}
-
-#identity input {
-  all: unset;
-  height: 25px;
-  margin-bottom: 40px;
-  border-bottom: 1px solid #00000063;
-  color: rgba(0, 0, 0, 0.671);
 }
 
 #identity input[type="email"]:valid,
@@ -55,8 +56,30 @@ form {
   border-bottom: 1px solid #ff000063;
 }
 
+#identity input {
+  all: unset;
+  height: 25px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #00000063;
+  color: rgba(0, 0, 0, 0.671);
+  transition: 0.3s;
+}
+
 .next {
-  width: 50%;
+  all: unset;
+  cursor: pointer;
+  width: 35%;
+  border: 1px solid rgba(0, 255, 0, 0.637);
+  border-radius: 10px;
+  text-align: center;
+  color: rgba(0, 255, 0, 0.637);
+  transition: 0.3s;
+}
+
+.next:hover {
+  border-color: rgba(0, 175, 0, 0);
+  background: rgba(0, 255, 0, 0.637);
+  color: #3f3f50;
 }
 
 span {
@@ -67,12 +90,22 @@ fieldset {
   all: unset;
 }
 
+#game_types_form {
+  width: 65vw;
+  background-color: darkgray;
+  height: 50vw;
+
+  padding: 5vw;
+}
 .checkboxes {
+  overflow: hidden;
+  overflow-y: scroll;
   position: relative;
   width: 100%;
-  height: 25vw;
+  height: 20vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5vw;
 }
 
 /* label[for=""] {
@@ -82,25 +115,100 @@ fieldset {
 } */
 
 input[type="checkbox"] {
+  display: grid;
   appearance: none;
-  inline-size: 100%;
+  /* background-color: pink; */
+  width: 100%;
   height: 100%;
+  grid-area: 1/1;
+  background-color: darkgray;
+  opacity: 50%;
 }
+
 .checkbox_wrapper {
-  background-image: url(/Images/games/csgo.jpg);
+  /* background-image: url(/Images/games/csgo.jpg); */
   background-size: cover;
   background-origin: border-box;
   display: grid;
-  width: 40px;
-  height: 40px;
-}
-
-input[type="checkbox"]:active {
+  /* justify-content: space-around; */
+  /* align-items: center; */
+  width: 100%;
+  height: 7vw;
+  background-color: blue;
+  text-align: center;
+  place-items: center;
+  border-radius: 4px;
 }
 
 input[type="checkbox"]:checked {
-  background-color: green;
+  opacity: 0;
 }
 
 .checkbox_wrapper label {
+  grid-area: 1/1;
+  z-index: 100;
+  color: white;
+}
+
+input[type="checkbox"] label {
+  width: 100%;
+}
+
+.checkbox_wrapper {
+  background-size: cover;
+  background-position: center;
+}
+
+/* TYPES BILLEDER */
+
+#wrapper_fps {
+  background-image: url(/Images/types/fps.jpg);
+}
+
+#wrapper_mmorpg {
+  background-image: url(/Images/types/mmorpg.jpg);
+}
+
+#wrapper_sports {
+  background-image: url(/Images/types/sports.jpg);
+}
+
+#wrapper_racing {
+  background-image: url(/Images/types/racing.jpg);
+}
+
+#wrapper_tower_defense {
+  background-image: url(/Images/types/towerdefense.jpg);
+}
+
+#wrapper_simulation {
+  background-image: url(/Images/types/simulation.jpg);
+}
+
+#wrapper_role_playing {
+  background-image: url(/Images/types/roleplaying.png);
+}
+
+#wrapper_adventure {
+  background-image: url(/Images/types/adventure.jpg);
+}
+
+#wrapper_survival {
+  background-image: url(/Images/types/survival.jpg);
+}
+
+#wrapper_fighting {
+  background-image: url(/Images/types/fighting.jpg);
+}
+
+#wrapper_battle_royale {
+  background-image: url(/Images/types/battleroyale.jpg);
+}
+
+#wrapper_rhythm {
+  background-image: url(/Images/types/rhythm.jpg);
+}
+
+#wrapper_platform {
+  background-image: url(/Images/types/platform.png);
 }
