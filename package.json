@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/lsmedegaard/ezone#readme",
   "dependencies": {
+    "sass": "^1.43.4",
     "vite": "^2.6.14"
   }
 }
