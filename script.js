@@ -82,7 +82,9 @@ function prepareObjects(json) {
     gameChoiceType.querySelector("label").setAttribute("for", types);
     gameChoiceType.querySelector("label").textContent = jsonProgress[j].toUpperCase();
 
-    gameChoiceType.querySelector(`#wrapper_${types}`).style.backgroundImage = `url(images/${progress}/${types}.jpg)`;
+    const url = import(`/images/${progress}/${types}.jpg`);
+
+    gameChoiceType.querySelector(`#wrapper_${types}`).style.backgroundImage = `url(${url})`;
     document.querySelector(".checkboxes").appendChild(gameChoiceType);
     console.log(gameChoiceType);
     j++;
