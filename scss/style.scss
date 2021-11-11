@@ -1,0 +1,212 @@
+@use "/scss/variables" as v;
+@use "/scss/resets";
+@use "/scss/classes";
+
+@function weight($weight-name) {
+  @return map-get(v.$font-weights, $weight-name);
+}
+@function transition($transition-name) {
+  @return map-get(v.$transitions, $transition-name);
+}
+
+html {
+  background-color: v.$background-color;
+}
+
+@font-face {
+  font-family: uniform;
+  src: url(/fonts/uniform-pro-con-black.woff2);
+}
+@font-face {
+  font-family: shapiro-regular;
+  src: url(/fonts/sharpiro-regular.woff2);
+}
+
+body {
+  margin-bottom: 200px;
+}
+
+#title_wrapper {
+  margin: 50px auto;
+  width: 50%;
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-family: uniform;
+  font-weight: weight(regular);
+  color: v.$text-color;
+  transform: translateX(-100%);
+}
+
+form {
+  width: 300px;
+  margin: auto;
+  background-color: v.$background-color;
+  font-family: shapiro-regular;
+}
+
+#identity_wrapper {
+  overflow: hidden;
+}
+
+#identity {
+  display: flex;
+  flex-direction: column;
+  input {
+    all: unset;
+    height: 25px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #c3daff49;
+    color: #c3daff;
+    transition: transition(fast);
+    &:valid {
+      border-color: #2bff0063;
+    }
+    &:invalid:focus {
+      border-color: #ff000063;
+    }
+  }
+  label,
+  span {
+    color: v.$text-color;
+  }
+  span {
+    font-size: 0.8rem;
+    opacity: 50%;
+  }
+}
+
+.next {
+  all: unset;
+  cursor: pointer;
+  width: 35%;
+  border: 1px solid v.$text-color;
+  border-radius: 10px;
+  text-align: center;
+  color: v.$text-color;
+  transition: transition(fast);
+  &:hover {
+    border-color: rgba(0, 175, 0, 0);
+    background: v.$text-color;
+    color: v.$background-color;
+  }
+}
+.back {
+  all: unset;
+  cursor: pointer;
+  width: 35%;
+  border: 1px solid v.$text-color;
+  border-radius: 10px;
+  text-align: center;
+  color: v.$text-color;
+  transition: transition(fast);
+
+  &:hover {
+    border-color: rgba(0, 175, 0, 0);
+    background: v.$text-color;
+    color: v.$background-color;
+  }
+}
+
+fieldset {
+  all: unset;
+}
+
+#game_types_form {
+  width: 65vw;
+  height: 50vw;
+  text-align: center;
+  #game_types {
+    h2 {
+      color: v.$text-color;
+      text-align: center;
+    }
+    h3 {
+      color: white;
+      font-weight: weight(regular);
+    }
+  }
+}
+
+.checkboxes {
+  overflow: hidden;
+  overflow-y: scroll;
+  position: relative;
+  width: 100%;
+  height: 20vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5vw;
+  .checkbox_wrapper {
+    background-position: center;
+    background-size: cover;
+    background-origin: border-box;
+    display: grid;
+    width: 100%;
+    height: 7vw;
+    background-color: blue;
+    text-align: center;
+    place-items: center;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    text-shadow: v.$text-shadow;
+    label {
+      grid-area: 1/1;
+      z-index: 100;
+      color: white;
+      pointer-events: none;
+      font-family: uniform;
+    }
+  }
+}
+
+input[type="checkbox"] {
+  display: grid;
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  grid-area: 1/1;
+  background-color: darkgray;
+  opacity: 75%;
+  transition: transition(fast);
+  &:checked {
+    opacity: 0;
+  }
+  &:hover {
+    opacity: 0;
+  }
+  label {
+    width: 100%;
+  }
+}
+
+#selection {
+  width: 100%;
+  height: 25%;
+  text-align: center;
+  color: v.$text-color;
+  .selected_boxes {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    gap: 0.5vw;
+    label {
+      color: white;
+      font-size: 0.6rem;
+      font-weight: weight(bold);
+      grid-area: 2/2;
+    }
+    > * {
+      background-size: cover;
+      width: 5vw;
+      height: 3vw;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      grid-row: 1fr auto 1fr;
+    }
+  }
+}

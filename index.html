@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ezone Form</title>
+    <link rel="stylesheet" href="scss/style.scss">
+
+</head>
+<body>
+    <div id="title_wrapper">
+    <h1>Get In The Zone</h1>
+</div>
+    <div id="identity_wrapper">
+    <form id="identity-form">
+        <fieldset id="identity">
+
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" enterkeyhint="next" autocomplete="name" required />
+       
+        <label for="email">E-mail</label>
+        <span>We´ll only use this to keep you updated on Ezone and the games you play</span>
+        <input id="email" name="email" type="email" inputmode="email" enterkeyhint="next" autocomplete="email" required />
+
+        <label for="password">Password</label>
+        <span>Must be at least 8 characters with at least 1 digit, 1 lowercase and 1 uppercase character</span>
+        <input id="password" name="password" type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" enterkeyhint="done" required />
+
+        <button type="button" class="next">Next</button>
+        </fieldset>
+    </form>
+
+    <form id="game_types_form" class="hide" action="">
+        <fieldset id="game_types">
+            <h2></h2>
+            <h3></h3>
+            
+        <div id="" class="checkboxes">
+           </div>
+         <template id="checkbox_template">
+            <div class="checkbox_wrapper" id="">    
+            <input type="checkbox" id="" name="" value="">
+            <label for="">undefined</label></div>
+        </template>
+    </fieldset>
+    
+    <fieldset id="selection">
+        <h2>CURRENT CHOICES</h2>
+        <div class="selected_boxes"></div>
+        </fieldset>
+        <button class="back">Back</button>
+        <button  type="button" class="next">Next</button>
+    </form>
+</div>
+
+<template id="form_template">
+    <form id="submit_form">
+        <div id="title_wrapper">
+            <h1>Get In The Zone</h1>
+        </div>
+        <h2></h2>
+        <h3></h3>
+        <fieldset id="user_identity">
+            
+            <div id="user_name">Your name:</div>
+            <div id="user_email">Your email:</div>
+        
+        </fieldset>
+        <fieldset id="user_choices">
+
+            <div id="types">Types:</div>
+            <div id="games">Games:</div>
+            <div id="areas">Areas:</div>  
+        </fieldset>
+        <button type="submit" class="submit">SUBMIT</button>
+       
+    </form>
+</template>
+    
+<script  src="script.js"></script>
+<script  src="restdb.js"></script>
+</body>
+</html>
