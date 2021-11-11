@@ -1,5 +1,7 @@
 "use strict";
 
+import("/scss/style.scss");
+
 let progress = "";
 let choices = [];
 
