@@ -19,15 +19,10 @@ function start() {
   addAnimations();
 }
 
-function loadJSON() {
-  fetch("data.json")
-    .then((response) => response.json())
-    .then((jsonData) => {
-      console.log(jsonData);
-      // when loaded, prepare objects
-      prepareObjects(jsonData);
-      addEventlisterners();
-    });
+async function loadJSON() {
+  const jsonData = await import("/data.json");
+  prepareObjects(jsonData);
+  addEventlisterners();
 }
 
 function prepareObjects(json) {
@@ -52,9 +47,9 @@ function prepareObjects(json) {
     let typeArray = [];
     jsonProgress.forEach((type) => {
       typeArray = type.split(":");
-      console.log(typeArray);
+      // console.log(typeArray);
       typeArray = typeArray.join("");
-      console.log(typeArray);
+      // console.log(typeArray);
       typeArray = typeArray.split(" ");
       typeArray = typeArray.join("");
       typeArray = typeArray.split("/");
@@ -65,7 +60,7 @@ function prepareObjects(json) {
 
       noSpaceStrings.push(typeArray);
 
-      console.log(typeArray);
+      // console.log(typeArray);
     });
 
     return noSpaceStrings;
@@ -82,11 +77,9 @@ function prepareObjects(json) {
     gameChoiceType.querySelector("label").setAttribute("for", types);
     gameChoiceType.querySelector("label").textContent = jsonProgress[j].toUpperCase();
 
-    const url = import(`/images/${progress}/${types}.jpg`);
-
-    gameChoiceType.querySelector(`#wrapper_${types}`).style.backgroundImage = `url(${url})`;
+    gameChoiceType.querySelector(`#wrapper_${types}`).style.backgroundImage = `url(/images/${progress}/${types}.jpg)`;
     document.querySelector(".checkboxes").appendChild(gameChoiceType);
-    console.log(gameChoiceType);
+    // console.log(gameChoiceType);
     j++;
   });
 
@@ -137,7 +130,7 @@ function addAnimations() {
 }
 
 function addEventlisterners() {
-  console.log("adding eventlisteners");
+  // console.log("adding eventlisteners");
   let allCheckboxes = document.querySelectorAll(`input[type=checkbox]`);
   allCheckboxes.forEach((checkbox) => checkbox.addEventListener("change", handleChoices));
   document.querySelector("#identity .next").addEventListener("mousedown", saveFormIdentity);
@@ -148,7 +141,7 @@ function saveFormIdentity() {
   let inputArray = [];
   let allInputs = document.querySelectorAll("#identity input");
   allInputs.forEach((input) => {
-    console.log(input.value);
+    // console.log(input.value);
     inputArray.push(input.value);
   });
   inputObject.fullName = inputArray[0];
@@ -159,18 +152,18 @@ function saveFormIdentity() {
 
   loadJSON();
 
-  console.log(inputObject);
+  // console.log(inputObject);
 }
 
 function saveSelected() {
   let selection = [];
   let selected = document.querySelectorAll(".selected_boxes input");
   selected.forEach((sel) => {
-    console.log(sel);
+    // console.log(sel);
     selection.push(sel.value);
   });
   inputObject[progress] = selection;
-  console.log(inputObject);
+  // console.log(inputObject);
   clearOptions();
   if (progress === "types") {
     /* progress = "games"; */
@@ -193,7 +186,7 @@ function saveSelected() {
     return;
   }
 
-  console.log(progress);
+  // console.log(progress);
 }
 
 function handleSubmission() {
@@ -209,7 +202,7 @@ function handleSubmission() {
   clone.querySelector("#types").textContent = inputObject.types;
   clone.querySelector("#games").textContent = inputObject.games;
   clone.querySelector("#areas").textContent = inputObject.areas;
-  console.log(clone);
+  // console.log(clone);
 
   wrapper.appendChild(clone);
 
@@ -219,7 +212,7 @@ function handleSubmission() {
 }
 
 function submitToRestDb() {
-  console.log("submitting to restDb");
+  // console.log("submitting to restDb");
   post();
   function post() {
     const data = inputObject;
@@ -232,37 +225,36 @@ function submitToRestDb() {
         "cache-control": "no-cache",
       },
       body: postData,
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    }).then((res) => res.json());
+    // .then((data) => console.log(data));
   }
 }
 
 function handleChoices() {
-  console.log("addingChoices");
+  // console.log("addingChoices");
 
   if (this.checked) {
-    console.log(this + " = true");
+    // console.log(this + " = true");
     addingChoice(this);
     /*  document.querySelector(".selected_boxes").appendChild(clone); */
   }
   if (!this.checked) {
-    console.log("removing " + this);
+    // console.log("removing " + this);
     removingChoice(this);
     /*   document.querySelector(".selected_boxes").appendChild(clone); */
   }
 }
 
 function removingChoice(choice) {
-  console.log(choice);
+  // console.log(choice);
   /*  choices.splice(choices.indexOf(`#clone_${this.value}`)); */
   document.getElementById(`clone_${choice.value}`).remove();
-  console.log(choice);
-  console.log("is " + choice.value + " " + "checked: " + ": " + choice.checked);
+  // console.log(choice);
+  // console.log("is " + choice.value + " " + "checked: " + ": " + choice.checked);
 }
 
 function addingChoice(choice) {
-  console.log("is " + choice.value + " " + "checked: " + choice.checked);
+  // console.log("is " + choice.value + " " + "checked: " + choice.checked);
   let clone = choice.parentElement.cloneNode(true);
   document.querySelector(".selected_boxes").appendChild(clone);
   clone.id = "clone_" + choice.value;
