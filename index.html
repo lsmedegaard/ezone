@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ezone Form</title>
     <link rel="stylesheet" href="scss/style.scss">
-<<<<<<< HEAD
 
 </head>
 <body>
@@ -28,59 +27,10 @@
         <span>Must be at least 8 characters with at least 1 digit, 1 lowercase and 1 uppercase character</span>
         <input id="password" name="password" type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" enterkeyhint="done" required />
 
-=======
-    <style>
-    #selection{
-        width: 100%;
-        height: 25%;
-    }
-
-        .selected_boxes{
-            display: flex;
-            flex-wrap: wrap;
-            width: 100%;
-            gap: 0.5vw;
-        }
-
-        .selected_boxes > * {
-            
-           background-size: cover;
-            width: 5vw;
-            height: 3vw;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            grid-row: 1fr auto 1fr;
-        }
-
-        .selected_boxes label {
-            color: white;
-            font-size: 0.5vw;
-            grid-area: 2/2;
-        }
-        </style>
-</head>
-<body>
-    <h1>Get In The Zone</h1>
-    <form>
-        <fieldset id="identity">
-        <!-- <legend>Identity</legend> -->
-        <label for="name">Full name</label>
-        <input id="name" name="name" type="text" enterkeyhint="next" required />
-       
-        <label for="email">E-mail</label>
-        <span>We´ll only use this to keep you updated on Ezone and the games you play</span>
-        <input id="email" name="email" type="email" inputmode="email" enterkeyhint="next" required />
-        
-        <label for="password">Password</label>
-        <span>Must be at least 8 characters with at least 1 digit, 1 lowercase and 1 uppercase character</span>
-        <input id="password" name="password" type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" enterkeyhint="done" required />
-        
->>>>>>> f415999b71f7bad3ef0a128c7d026f5d2fb5abd2
         <button type="button" class="next">Next</button>
         </fieldset>
     </form>
 
-<<<<<<< HEAD
     <form id="game_types_form" class="hide" action="">
         <fieldset id="game_types">
             <h2></h2>
@@ -89,77 +39,10 @@
         <div id="" class="checkboxes">
            </div>
          <template id="checkbox_template">
-=======
-    <form id="game_types_form" action="">
-        <fieldset id="game_types">
-            <legend>Types of Games</legend>
-            <h2>Choose which types of games you are playing and want information about, to improve your gaming skills and habits</h2>
-            
-        <div id="" class="checkboxes">
-           
-              
-            
-            <!-- 
-            <div class="checkbox_wrapper" id="wrapper_fps">    
-            <input type="checkbox" id="fps" name="fps" value="fps">
-            <label for="fps">FPS</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_mmorpg">
-            <input type="checkbox" id="mmorpg" name="mmorpg" value="mmorpg">
-            <label for="mmorpg">MMORPG</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_sports">
-            <input type="checkbox" id="sports" name="sports" value="sports">
-            <label for="sports">SPORTS</label></div>
-        
-            <div class="checkbox_wrapper" id="wrapper_racing">
-            <input type="checkbox" id="racing" name="racing" value="racing">
-            <label for="racing">RACING</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_tower_defense">
-            <input type="checkbox" id="tower_defense" name="tower_defense" value="tower_defense">
-            <label for="tower_defense">TOWER DEFENSE</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_simulation">
-            <input type="checkbox" id="simulation" name="simulation" value="simulation">
-            <label for="simulation">SIMULATION</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_role_playing">
-            <input type="checkbox" id="role_playing" name="role_playing" value="role_playing">
-            <label for="role_playing">ROLE PLAYING</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_adventure">
-            <input type="checkbox" id="adventure" name="adventure" value="adventure">
-            <label for="adventure">ADVENTURE</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_survival">
-            <input type="checkbox" id="survival" name="survival" value="survival">
-            <label for="survival">SURVIVAL</label></div>
-        
-            <div class="checkbox_wrapper" id="wrapper_fighting">
-            <input type="checkbox" id="fighting" name="fighting" value="fighting">
-            <label for="fighting">FIGHTING</label></div>
-            
-            <div class="checkbox_wrapper" id="wrapper_battle_royale">
-            <input type="checkbox" id="battle_royale" name="battle_royale" value="battle_royale">
-            <label for="battle_royale">BATTLE ROYALE</label></div>
-        
-            <div class="checkbox_wrapper" id="wrapper_rhythm">
-            <input type="checkbox" id="rhythm" name="rhythm" value="rhythm">
-            <label for="rhythm">RHYTHM</label></div>
-        
-            <div class="checkbox_wrapper" id="wrapper_platform">
-            <input type="checkbox" id="platform" name="platform" value="platform">
-            <label for="platform">PLATFORM</label></div>
-          
-         --></div>
-         <template>
->>>>>>> f415999b71f7bad3ef0a128c7d026f5d2fb5abd2
             <div class="checkbox_wrapper" id="">    
             <input type="checkbox" id="" name="" value="">
             <label for="">undefined</label></div>
         </template>
-<<<<<<< HEAD
     </fieldset>
     
     <fieldset id="selection">
@@ -194,125 +77,6 @@
        
     </form>
 </template>
-=======
-
-        
-
-        </fieldset>
-
-        <fieldset id="selection">
-            <h2>CURRENT CHOICES</h2>
-            <div class="selected_boxes"></div>
-            </fieldset>
-            
-            <button class="back">Back</button>
-            <button  type="button" class="next">Next</button>
-
-        <!-- <fieldset id="games">
-            <legend>Types of Games</legend>
-            <h2>Choose which types of games you are playing and want information about, to improve your gaming skills and habits</h2>
-            
-        <div class="checkboxes">
-            
-            <template>
-            <div class="checkbox_wrapper" id="">    
-            <input type="checkbox" id="" name="" value="">
-            <label for="">undefined</label></div>
-            </template> -->
-
-            
-           <!--  <div class="checkbox_wrapper" id="wrapper_tekken">
-            <input type="checkbox" id="tekken" name="tekken" value="tekken">
-            <label for="tekken">TEKKEN</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_fifa">
-            <input type="checkbox" id="fifa" name="fifa" value="fifa">
-            <label for="fifa">FIFA</label></div>
-        
-            <div class="checkbox_wrapper" id="wrapper_supermario">
-            <input type="checkbox" id="supermario" name="supermario" value="supermario">
-            <label for="supermario">SUPER MARIO</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_fortnite">
-            <input type="checkbox" id="fortnite" name="fortnite" value="fortnite">
-            <label for="fortnite">FORTNITE</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_callofduty">
-            <input type="checkbox" id="callofduty" name="callofduty" value="callofduty">
-            <label for="callofduty">CALL OF DUTY</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_thesims">
-            <input type="checkbox" id="thesims" name="thesims" value="thesims">
-            <label for="thesims">THE SIMS</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_mortalkombat">
-            <input type="checkbox" id="mortalkombat" name="mortalkombat" value="mortalkombat">
-            <label for="mortalkombat">MORTAL KOMBAT</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_guitarhero">
-            <input type="checkbox" id="guitarhero" name="guitarhero" value="guitarhero">
-            <label for="guitarhero">GUITAR HERO</label></div>
-        
-            <div class="checkbox_wrapper" id="wrapper_worldofwarcraft">
-            <input type="checkbox" id="worldofwarcraft" name="worldofwarcraft" value="worldofwarcraft">
-            <label for="worldofwarcraft">WORLD OF WARCRAFT</label></div>
-            
-            <div class="checkbox_wrapper" id="wrapper_skyrim">
-            <input type="checkbox" id="skyrim" name="skyrim" value="skyrim">
-            <label for="skyrim">SKYRIM</label></div>
-        
-            <div class="checkbox_wrapper" id="wrapper_starcraft">
-            <input type="checkbox" id="starcraft" name="starcraft" value="starcraft">
-            <label for="starcraft">STARCRAFT</label></div>
-        
-            <div class="checkbox_wrapper" id="wrapper_warcraft">
-            <input type="checkbox" id="warcraft" name="warcraft" value="warcraft">
-            <label for="warcraft">WARCRAFT</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_leagueoflegends">
-            <input type="checkbox" id="leagueoflegends" name="leagueoflegends" value="leagueoflegends">
-            <label for="leagueoflegends">LEAGUE OF LEGENDS</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_dota">
-            <input type="checkbox" id="dota" name="dota" value="dota">
-            <label for="dota">DOTA</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_valorant">
-            <input type="checkbox" id="valorant" name="valorant" value="valorant">
-            <label for="valorant">VALORANT</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_leftfordead">
-            <input type="checkbox" id="leftfordead" name="leftfordead" value="leftfordead">
-            <label for="leftfordead">LEFT FOR DEAD</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_overwatch">
-            <input type="checkbox" id="overwatch" name="overwatch" value="overwatch">
-            <label for="overwatch">OVERWATCH</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_pubg">
-            <input type="checkbox" id="pubg" name="pubg" value="pubg">
-            <label for="pubg">PUBG</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_diablo">
-            <input type="checkbox" id="diablo" name="diablo" value="diablo">
-            <label for="diablo">DIABLO</label></div>
-
-            <div class="checkbox_wrapper" id="wrapper_minecraft">
-            <input type="checkbox" id="minecraft" name="minecraft" value="minecraft">
-            <label for="minecraft">MINECRAFT</label></div>
-            
-
-                
-        </div>
- 
-        <button class="back">Back</button>
-        <button class="next">Next</button>
-
-        </fieldset>
--->
-
-    </form>
->>>>>>> f415999b71f7bad3ef0a128c7d026f5d2fb5abd2
     
 <script  src="script.js"></script>
 <script  src="restdb.js"></script>
