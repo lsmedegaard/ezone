@@ -9,9 +9,17 @@
 
 </head>
 <body>
+
+<section id="landing" >
+    <img src="" alt="">
+    <button id="show_form">SIGN UP</button>
+</section>
+
+<section id="ezoneforms">
+
     <div id="title_wrapper">
     <h1>Get In The Zone</h1>
-</div>
+</div> 
     <div id="identity_wrapper">
     <form id="identity-form">
         <fieldset id="identity">
@@ -46,36 +54,48 @@
     </fieldset>
     
     <fieldset id="selection">
-        <h2>CURRENT CHOICES</h2>
+        <h2>Current Choices</h2>
         <div class="selected_boxes"></div>
         </fieldset>
-        <button class="back">Back</button>
-        <button  type="button" class="next">Next</button>
+        <button type="button" class="back">Back</button>
+        <button type="button" class="next">Next</button>
     </form>
-</div>
 
+        
+</div>
+</section>
 <template id="form_template">
     <form id="submit_form">
-        <div id="title_wrapper">
-            <h1>Get In The Zone</h1>
-        </div>
         <h2></h2>
         <h3></h3>
         <fieldset id="user_identity">
             
-            <div id="user_name">Your name:</div>
-            <div id="user_email">Your email:</div>
+            <div class="choice"> <h4>Your name: </h4>  <div id="user_name"></div></div>
+            <div class="choice">  <h4>Email: </h4> <div id="user_email"> </div></div>
         
         </fieldset>
         <fieldset id="user_choices">
-
-            <div id="types">Types:</div>
-            <div id="games">Games:</div>
-            <div id="areas">Areas:</div>  
+            <div class="choice">   <h4>Types: </h4>
+            <div id="types"> </div></div>
+            <div class="choice"> <h4>Games: </h4>
+            <div id="games"> </div></div>
+            <div class="choice">
+            <h4>Areas: </h4>
+            <div id="areas"> </div>  </div>
         </fieldset>
+        <button type="button" class="back">Back</button>
         <button type="button" class="submit">SUBMIT</button>
        
     </form>
+</template>
+
+<template id="thanks">
+    <fieldset id="thankyou">
+    <h1>Thank you!</h1>
+    <h2>We have received your information and can't wait to help you improve!</h2>
+    </fieldset>
+
+    <button type="button" class="back">Close</button>
 </template>
     
 <script type="module" src="/script.js"></script>

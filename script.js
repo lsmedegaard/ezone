@@ -14,6 +14,7 @@ let inputObject = {
 
 /* loadJSON(); */
 start();
+
 function start() {
   addEventlisterners();
   addAnimations();
@@ -21,6 +22,7 @@ function start() {
 
 async function loadJSON() {
   const jsonData = await import("/data.json");
+  clearOptions();
   prepareObjects(jsonData);
   addEventlisterners();
 }
@@ -79,7 +81,14 @@ function prepareObjects(json) {
 
     gameChoiceType.querySelector(`#wrapper_${types}`).style.backgroundImage = `url(/images/${progress}/${types}.jpg)`;
     document.querySelector(".checkboxes").appendChild(gameChoiceType);
+
+    /*  if (inputObject[progress]) {
+      console.log(inputObject[progress]);
+      document.querySelector(`#input_${types}`).checked = true;
+    } */
+
     // console.log(gameChoiceType);
+
     j++;
   });
 
@@ -135,8 +144,34 @@ function addEventlisterners() {
   allCheckboxes.forEach((checkbox) => checkbox.addEventListener("change", handleChoices));
   document.querySelector("#identity .next").addEventListener("mousedown", saveFormIdentity);
   document.querySelector("#game_types_form .next").addEventListener("mousedown", saveSelected);
+  document.querySelector(".back").addEventListener("click", backButton);
 }
 
+function backButton() {
+  if (progress === "submit") {
+    saving();
+    console.log("going to areas");
+    progress = "areas";
+    loadJSON();
+    return;
+  }
+
+  if (progress === "areas") {
+    console.log("going to games");
+    saving();
+    progress = "games";
+    loadJSON();
+    return;
+  }
+  if (progress === "games") {
+    progress = "types";
+    console.log("going to types");
+    saving();
+
+    loadJSON();
+    return;
+  }
+}
 function saveFormIdentity() {
   let inputArray = [];
   let allInputs = document.querySelectorAll("#identity input");
@@ -154,8 +189,7 @@ function saveFormIdentity() {
 
   // console.log(inputObject);
 }
-
-function saveSelected() {
+function saving() {
   let selection = [];
   let selected = document.querySelectorAll(".selected_boxes input");
   selected.forEach((sel) => {
@@ -163,6 +197,10 @@ function saveSelected() {
     selection.push(sel.value);
   });
   inputObject[progress] = selection;
+}
+
+function saveSelected() {
+  saving();
   // console.log(inputObject);
   clearOptions();
   if (progress === "types") {
@@ -196,19 +234,35 @@ function handleSubmission() {
   const template = document.querySelector("#form_template");
   const clone = template.content.cloneNode(true);
 
-  clone.querySelector("#user_name").textContent = inputObject.fullName;
-  clone.querySelector("#user_email").textContent = inputObject.email;
+  clone.querySelector("#user_name").textContent += inputObject.fullName;
 
-  clone.querySelector("#types").textContent = inputObject.types;
-  clone.querySelector("#games").textContent = inputObject.games;
-  clone.querySelector("#areas").textContent = inputObject.areas;
+  clone.querySelector("#user_email").textContent += inputObject.email;
+
+  clone.querySelector("#types").textContent += inputObject.types;
+  clone.querySelector("#games").textContent += inputObject.games;
+  clone.querySelector("#areas").textContent += inputObject.areas;
   // console.log(clone);
 
   wrapper.appendChild(clone);
 
-  wrapper.querySelector("button").addEventListener("click", () => {
+  document.querySelector(".back").addEventListener("click", backButton);
+
+  wrapper.querySelector(".submit").addEventListener("click", () => {
+    sayingThankYou();
     submitToRestDb();
   });
+}
+
+function sayingThankYou() {
+  const template = document.querySelector("#thanks");
+  const clone = template.content.cloneNode(true);
+  const wrapper = document.querySelector("#ezoneforms");
+
+  wrapper.innerHTML = "";
+  wrapper.appendChild(clone);
+}
+function goBack() {
+  window.history.back();
 }
 
 function submitToRestDb() {

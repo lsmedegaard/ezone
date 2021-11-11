@@ -41,6 +41,10 @@ h1 {
   transform: translateX(-100%);
 }
 
+h2 {
+  margin-bottom: 10px;
+}
+
 form {
   width: 300px;
   margin: auto;
@@ -50,6 +54,14 @@ form {
 
 #identity_wrapper {
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+#identity-form {
+  grid-column: 2;
+  grid-row: 1;
 }
 
 #identity {
@@ -82,7 +94,8 @@ form {
 .next {
   all: unset;
   cursor: pointer;
-  width: 35%;
+  height: 40px;
+  width: 250px;
   border: 1px solid v.$text-color;
   border-radius: 10px;
   text-align: center;
@@ -97,7 +110,8 @@ form {
 .back {
   all: unset;
   cursor: pointer;
-  width: 35%;
+  height: 40px;
+  width: 250px;
   border: 1px solid v.$text-color;
   border-radius: 10px;
   text-align: center;
@@ -111,11 +125,31 @@ form {
   }
 }
 
+.submit {
+  all: unset;
+  cursor: pointer;
+  height: 40px;
+  width: 250px;
+  border: 1px solid v.$text-color;
+  border-radius: 10px;
+  text-align: center;
+  place-items: center;
+  color: v.$text-color;
+  transition: transition(fast);
+
+  &:hover {
+    border-color: rgba(0, 175, 0, 0);
+    background: v.$text-color;
+    color: v.$background-color;
+  }
+}
 fieldset {
   all: unset;
 }
 
 #game_types_form {
+  grid-column: 2;
+  grid-row: 1;
   width: 65vw;
   height: 50vw;
   text-align: center;
@@ -185,7 +219,7 @@ input[type="checkbox"] {
 
 #selection {
   width: 100%;
-  height: 25%;
+  height: 120px;
   text-align: center;
   color: v.$text-color;
   .selected_boxes {
@@ -208,5 +242,27 @@ input[type="checkbox"] {
       grid-template-columns: 1fr auto 1fr;
       grid-row: 1fr auto 1fr;
     }
+  }
+}
+
+#user_choices {
+  display: flex;
+  flex-direction: column;
+  div {
+    color: v.$text-color;
+  }
+}
+
+#submit_form {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+}
+#user_identity {
+  display: flex;
+  flex-direction: column;
+
+  div {
+    color: v.$text-color;
   }
 }
