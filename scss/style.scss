@@ -1,0 +1,220 @@
+@use "/scss/variables" as v;
+@use "/scss/resets";
+
+@function weight($weight-name) {
+  @return map-get(v.$font-weights, $weight-name);
+}
+@function transition($transition-name) {
+  @return map-get(v.$transitions, $transition-name);
+}
+
+html {
+  background-color: v.$background-color;
+}
+
+@font-face {
+  font-family: uniform;
+  src: url(/fonts/uniform-pro-con-black.woff2);
+}
+@font-face {
+  font-family: shapiro-regular;
+  src: url(/fonts/sharpiro-regular.woff2);
+}
+
+body {
+  margin-bottom: 200px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-family: uniform;
+  font-weight: weight(regular);
+  text-align: center;
+  margin: 50px auto;
+  color: v.$text-color;
+}
+
+form {
+  width: 300px;
+  margin: auto;
+  background-color: v.$background-color;
+  font-family: shapiro-regular;
+}
+
+#identity {
+  display: flex;
+  flex-direction: column;
+  & input {
+    all: unset;
+    height: 25px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #00000063;
+    color: rgba(0, 0, 0, 0.671);
+    transition: transition(fast);
+    &:valid {
+      border-color: #2bff0063;
+    }
+    &:invalid:focus {
+      border-color: #ff000063;
+    }
+  }
+  & label,
+  & span {
+    color: v.$text-color;
+  }
+  & span {
+    font-size: 0.8rem;
+    opacity: 50%;
+  }
+}
+
+.next {
+   all: unset; 
+  cursor: pointer;
+  width: 35%;
+  border: 1px solid v.$text-color;
+  border-radius: 10px;
+  text-align: center;
+  color: v.$text-color;
+  transition: transition(fast);
+  &:hover {
+    border-color: rgba(0, 175, 0, 0);
+    background: v.$text-color;
+    color: v.$background-color;
+  }
+}
+.back {
+  all: unset;
+  cursor: pointer;
+  width: 35%;
+  border: 1px solid v.$text-color;
+  border-radius: 10px;
+  text-align: center;
+  color: v.$text-color;
+  transition: transition(fast);
+
+  &:hover {
+    border-color: rgba(0, 175, 0, 0);
+    background: v.$text-color;
+    color: v.$background-color;
+  }
+}
+
+fieldset {
+  all: unset;
+}
+
+#game_types_form {
+  width: 65vw;
+  background-color: darkgray;
+  height: 50vw;
+  padding: 5vw;
+}
+.checkboxes {
+  overflow: hidden;
+  overflow-y: scroll;
+  position: relative;
+  width: 100%;
+  height: 20vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5vw;
+  & .checkbox_wrapper {
+    background-position: center;
+    background-size: cover;
+    background-origin: border-box;
+    display: grid;
+    width: 100%;
+    height: 7vw;
+    background-color: blue;
+    text-align: center;
+    place-items: center;
+    border-radius: 4px;
+    & label {
+      grid-area: 1/1;
+      z-index: 100;
+      color: white;
+      font-size: 1.5rem;
+      pointer-events: none;
+    }
+  }
+}
+
+input[type="checkbox"] {
+  display: grid;
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  grid-area: 1/1;
+  background-color: darkgray;
+  opacity: 50%;
+}
+
+input[type="checkbox"]:checked {
+  opacity: 0;
+}
+
+input[type="checkbox"] label {
+  width: 100%;
+}
+
+/* TYPES BILLEDER */
+
+/* #wrapper_fps {
+  background-image: url(/Images/types/fps.jpg);
+}
+
+#wrapper_mmorpg {
+  background-image: url(/Images/types/mmorpg.jpg);
+}
+
+#wrapper_sports {
+  background-image: url(/Images/types/sports.jpg);
+}
+
+#wrapper_racing {
+  background-image: url(/Images/types/racing.jpg);
+}
+
+#wrapper_tower_defense {
+  background-image: url(/Images/types/towerdefense.jpg);
+}
+
+#wrapper_simulation {
+  background-image: url(/Images/types/simulation.jpg);
+}
+
+#wrapper_role_playing {
+  background-image: url(/Images/types/roleplaying.png);
+}
+
+#wrapper_adventure {
+  background-image: url(/Images/types/adventure.jpg);
+}
+
+#wrapper_survival {
+  background-image: url(/Images/types/survival.jpg);
+}
+
+#wrapper_fighting {
+  background-image: url(/Images/types/fighting.jpg);
+}
+
+#wrapper_battle_royale {
+  background-image: url(/Images/types/battleroyale.jpg);
+}
+
+#wrapper_rhythm {
+  background-image: url(/Images/types/rhythm.jpg);
+}
+
+#wrapper_platform {
+  background-image: url(/Images/types/platform.png);
+} */
+
+/* GAMES BILLEDER */
+
+/* #wrapper_csgo {
+  background-image: url(/Images/games/csgo.jpg);
+}
+ */
