@@ -52,7 +52,8 @@ form {
   font-family: shapiro-regular;
 }
 
-#identity_wrapper {
+#identity_wrapper,
+#submission_wrapper {
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

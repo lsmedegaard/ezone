@@ -11,58 +11,49 @@
 <body>
 
 <section id="landing" >
-    <img src="" alt="">
+    <img src="/#" alt="">
     <button id="show_form">SIGN UP</button>
 </section>
 
 <section id="ezoneforms">
-
     <div id="title_wrapper">
-    <h1>Get In The Zone</h1>
-</div> 
+        <h1>Get In The Zone</h1>
+    </div> 
     <div id="identity_wrapper">
-    <form id="identity-form">
-        <fieldset id="identity">
-
-        <label for="name">Full name</label>
-        <input id="name" name="name" type="text" enterkeyhint="next" autocomplete="name" required />
-       
-        <label for="email">E-mail</label>
-        <span>We´ll only use this to keep you updated on Ezone and the games you play</span>
-        <input id="email" name="email" type="email" inputmode="email" enterkeyhint="next" autocomplete="email" required />
-
-        <label for="password">Password</label>
-        <span>Must be at least 8 characters with at least 1 digit, 1 lowercase and 1 uppercase character</span>
-        <input id="password" name="password" type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" enterkeyhint="done" required />
-
-        <button type="button" class="next">Next</button>
-        </fieldset>
-    </form>
-
-    <form id="game_types_form" class="hide" action="">
-        <fieldset id="game_types">
-            <h2></h2>
-            <h3></h3>
-            
-        <div id="" class="checkboxes">
-           </div>
-         <template id="checkbox_template">
-            <div class="checkbox_wrapper" id="">    
-            <input type="checkbox" id="" name="" value="">
-            <label for="">undefined</label></div>
-        </template>
-    </fieldset>
-    
-    <fieldset id="selection">
-        <h2>Current Choices</h2>
-        <div class="selected_boxes"></div>
-        </fieldset>
-        <button type="button" class="back">Back</button>
-        <button type="button" class="next">Next</button>
-    </form>
-
-        
-</div>
+        <form id="identity-form">
+            <fieldset id="identity">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" enterkeyhint="next" autocomplete="name" required />
+                <label for="email">E-mail</label>
+                <span>We´ll only use this to keep you updated on Ezone and the games you play</span>
+                <input id="email" name="email" type="email" inputmode="email" enterkeyhint="next" autocomplete="email" required />
+                <label for="password">Password</label>
+                <span>Must be at least 8 characters with at least 1 digit, 1 lowercase and 1 uppercase character</span>
+                <input id="password" name="password" type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" enterkeyhint="done" required />
+                <button type="button" class="next">Next</button>
+            </fieldset>
+        </form>
+        <form id="game_types_form" class="hide" action="">
+            <fieldset id="game_types">
+                <h2></h2>
+                <h3></h3>
+                <div id="" class="checkboxes">
+                </div>
+                <template id="checkbox_template">
+                    <div class="checkbox_wrapper" id="">    
+                    <input type="checkbox" id="" name="" value="">
+                    <label for="">undefined</label></div>
+                </template>
+            </fieldset>
+            <fieldset id="selection">
+                <h2>Current Choices</h2>
+                <div class="selected_boxes"></div>
+            </fieldset>
+            <button type="button" class="back">Back</button>
+            <button type="button" class="next">Next</button>
+        </form>  
+    </div>
+    <div id="submission_wrapper"></div>
 </section>
 <template id="form_template">
     <form id="submit_form">

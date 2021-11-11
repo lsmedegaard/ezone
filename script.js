@@ -1,6 +1,6 @@
 "use strict";
 
-let progress = "";
+let progress = "types";
 let choices = [];
 
 let inputObject = {
@@ -27,6 +27,30 @@ async function loadJSON() {
   addEventlisterners();
 }
 
+function prepareJsonData(jsonProgress) {
+  let noSpaceStrings = [];
+  let typeArray = [];
+  jsonProgress.forEach((type) => {
+    typeArray = type.split(":");
+    // console.log(typeArray);
+    typeArray = typeArray.join("");
+    // console.log(typeArray);
+    typeArray = typeArray.split(" ");
+    typeArray = typeArray.join("");
+    typeArray = typeArray.split("/");
+    typeArray = typeArray.join("");
+    typeArray = typeArray.split("-");
+    typeArray = typeArray.join("");
+    typeArray = typeArray.toLowerCase();
+
+    noSpaceStrings.push(typeArray);
+
+    // console.log(typeArray);
+  });
+
+  return noSpaceStrings;
+}
+
 function prepareObjects(json) {
   const template = document.querySelector("#checkbox_template");
   let jsonProgress;
@@ -44,31 +68,7 @@ function prepareObjects(json) {
     /* progress = "submit"; */
   }
 
-  function prepareJsonData() {
-    let noSpaceStrings = [];
-    let typeArray = [];
-    jsonProgress.forEach((type) => {
-      typeArray = type.split(":");
-      // console.log(typeArray);
-      typeArray = typeArray.join("");
-      // console.log(typeArray);
-      typeArray = typeArray.split(" ");
-      typeArray = typeArray.join("");
-      typeArray = typeArray.split("/");
-      typeArray = typeArray.join("");
-      typeArray = typeArray.split("-");
-      typeArray = typeArray.join("");
-      typeArray = typeArray.toLowerCase();
-
-      noSpaceStrings.push(typeArray);
-
-      // console.log(typeArray);
-    });
-
-    return noSpaceStrings;
-  }
-
-  let noSpaceStrings = prepareJsonData(json);
+  let noSpaceStrings = prepareJsonData(jsonProgress);
   let j = 0;
   noSpaceStrings.forEach((types) => {
     const gameChoiceType = template.content.cloneNode(true);
@@ -78,7 +78,6 @@ function prepareObjects(json) {
     gameChoiceType.querySelector("input").value = types;
     gameChoiceType.querySelector("label").setAttribute("for", types);
     gameChoiceType.querySelector("label").textContent = jsonProgress[j].toUpperCase();
-
     gameChoiceType.querySelector(`#wrapper_${types}`).style.backgroundImage = `url(/images/${progress}/${types}.jpg)`;
     document.querySelector(".checkboxes").appendChild(gameChoiceType);
 
@@ -134,6 +133,7 @@ function addAnimations() {
       document.querySelector("#identity-form").classList.add("fadeup");
       document.querySelector("#game_types_form").classList.remove("hide");
       document.querySelector("#game_types_form").classList.add("nextForm");
+      document.querySelector("#identity-form").style.display = "none";
     });
   });
 }
@@ -148,30 +148,25 @@ function addEventlisterners() {
 }
 
 function backButton() {
-  if (progress === "submit") {
-    saving();
-    console.log("going to areas");
+  saving();
+
+  if (progress === "types") {
+    document.querySelector("#identity-form").classList.remove("fadeup");
+    document.querySelector("#game_types_form").classList.add("hide");
+    document.querySelector("#game_types_form").classList.remove("nextForm");
+    document.querySelector("#identity-form").style.display = "block";
+  } else if (progress === "submit") {
+    document.querySelector("#identity_wrapper").style.display = "grid";
+    document.querySelector("#submission_wrapper").innerHTML = null;
     progress = "areas";
-    loadJSON();
-    return;
-  }
-
-  if (progress === "areas") {
-    console.log("going to games");
-    saving();
+  } else if (progress === "areas") {
     progress = "games";
-    loadJSON();
-    return;
-  }
-  if (progress === "games") {
+  } else if (progress === "games") {
     progress = "types";
-    console.log("going to types");
-    saving();
-
-    loadJSON();
-    return;
   }
+  loadJSON();
 }
+
 function saveFormIdentity() {
   let inputArray = [];
   let allInputs = document.querySelectorAll("#identity input");
@@ -182,8 +177,6 @@ function saveFormIdentity() {
   inputObject.fullName = inputArray[0];
   inputObject.email = inputArray[1];
   inputObject.password = inputArray[2];
-
-  progress = "types";
 
   loadJSON();
 
@@ -201,13 +194,8 @@ function saving() {
 
 function saveSelected() {
   saving();
-  // console.log(inputObject);
   clearOptions();
   if (progress === "types") {
-    /* progress = "games"; */
-    /*  this.addEventListener("click", () => {
-    
-    }); */
     progress = "games";
     loadJSON();
     return;
@@ -220,16 +208,13 @@ function saveSelected() {
   }
   if (progress === "areas") {
     progress = "submit";
-    handleSubmission();
+    prepareSubmission();
     return;
   }
-
-  // console.log(progress);
 }
 
-function handleSubmission() {
-  const wrapper = document.querySelector("#identity_wrapper");
-  wrapper.innerHTML = ""; //MÅÅSKE IKKE REMOVE hvis man skal tilbage (måske bare hide??)
+function prepareSubmission() {
+  document.querySelector("#identity_wrapper").style.display = "none";
 
   const template = document.querySelector("#form_template");
   const clone = template.content.cloneNode(true);
@@ -241,11 +226,12 @@ function handleSubmission() {
   clone.querySelector("#types").textContent += inputObject.types;
   clone.querySelector("#games").textContent += inputObject.games;
   clone.querySelector("#areas").textContent += inputObject.areas;
-  // console.log(clone);
+
+  clone.querySelector(".back").addEventListener("click", backButton);
+
+  const wrapper = document.querySelector("#submission_wrapper");
 
   wrapper.appendChild(clone);
-
-  document.querySelector(".back").addEventListener("click", backButton);
 
   wrapper.querySelector(".submit").addEventListener("click", () => {
     sayingThankYou();
