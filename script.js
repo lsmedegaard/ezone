@@ -133,7 +133,7 @@ function addAnimations() {
       document.querySelector("#identity-form").classList.add("fadeup");
       document.querySelector("#game_types_form").classList.remove("hide");
       document.querySelector("#game_types_form").classList.add("nextForm");
-      document.querySelector("#identity-form").style.display = "none";
+      // document.querySelector("#identity-form").style.display = "none";
     });
   });
 }
@@ -154,7 +154,7 @@ function backButton() {
     document.querySelector("#identity-form").classList.remove("fadeup");
     document.querySelector("#game_types_form").classList.add("hide");
     document.querySelector("#game_types_form").classList.remove("nextForm");
-    document.querySelector("#identity-form").style.display = "block";
+    document.querySelector("#identity-form").style.display = "bloc";
   } else if (progress === "submit") {
     document.querySelector("#identity_wrapper").style.display = "grid";
     document.querySelector("#submission_wrapper").innerHTML = null;
