@@ -16,10 +16,9 @@ request(options, function (error, response, body) {
   console.log(body);
 }); */
 
-export const endpoint = "https://ezoneform-b1df.restdb.io/rest/userforms";
+/* export const endpoint = "https://ezoneform-b1df.restdb.io/rest/userforms";
 
 export const headers = {
   "Content-Type": "application/json; charset=utf-8",
   "x-apikey": "a7223fce0ea590f8d666e6060b064717283ee",
-  "cache-control": "no-cache",
-};
+  "cache-control": "no-cache", */

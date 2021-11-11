@@ -1,0 +1,84 @@
+.hide {
+  display: none;
+}
+
+.fadeup {
+  animation-name: fadeupKF;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+@keyframes fadeupKF {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  25% {
+    transform: translateY(2vw);
+  }
+
+  100% {
+    transform: translateY(-100vw);
+    opacity: 0;
+  }
+}
+
+.nextForm {
+  animation-name: nextFormKF;
+  animation-duration: 1s;
+  animation-delay: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+@keyframes nextFormKF {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  75% {
+    display: block;
+    opacity: 1;
+    // transform: translateY(-42vh);
+  }
+
+  100% {
+    transform: translateY(-35vh);
+  }
+}
+
+.titleslide {
+  animation-name: titleslideKF;
+  animation-duration: 1.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+@keyframes titleslideKF {
+  80% {
+    transform: translateX(0.5vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.fadein {
+  animation-name: fadeinKF;
+  animation-duration: 1s;
+  animation-delay: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+@keyframes fadeinKF {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

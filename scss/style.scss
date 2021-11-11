@@ -1,5 +1,6 @@
 @use "/scss/variables" as v;
 @use "/scss/resets";
+@use "/scss/classes";
 
 @function weight($weight-name) {
   @return map-get(v.$font-weights, $weight-name);
@@ -25,13 +26,19 @@ body {
   margin-bottom: 200px;
 }
 
+#title_wrapper {
+  margin: 50px auto;
+  width: 50%;
+  overflow: hidden;
+}
+
 h1 {
+  text-align: center;
   font-size: 3rem;
   font-family: uniform;
   font-weight: weight(regular);
-  text-align: center;
-  margin: 50px auto;
   color: v.$text-color;
+  transform: translateX(-100%);
 }
 
 form {
@@ -41,15 +48,19 @@ form {
   font-family: shapiro-regular;
 }
 
+#identity_wrapper {
+  overflow: hidden;
+}
+
 #identity {
   display: flex;
   flex-direction: column;
-  & input {
+  input {
     all: unset;
     height: 25px;
     margin-bottom: 40px;
-    border-bottom: 1px solid #00000063;
-    color: rgba(0, 0, 0, 0.671);
+    border-bottom: 1px solid #c3daff49;
+    color: #c3daff;
     transition: transition(fast);
     &:valid {
       border-color: #2bff0063;
@@ -58,11 +69,11 @@ form {
       border-color: #ff000063;
     }
   }
-  & label,
-  & span {
+  label,
+  span {
     color: v.$text-color;
   }
-  & span {
+  span {
     font-size: 0.8rem;
     opacity: 50%;
   }
@@ -106,10 +117,20 @@ fieldset {
 
 #game_types_form {
   width: 65vw;
-  background-color: darkgray;
   height: 50vw;
-  padding: 5vw;
+  text-align: center;
+  #game_types {
+    h2 {
+      color: v.$text-color;
+      text-align: center;
+    }
+    h3 {
+      color: white;
+      font-weight: weight(regular);
+    }
+  }
 }
+
 .checkboxes {
   overflow: hidden;
   overflow-y: scroll;
@@ -119,7 +140,7 @@ fieldset {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 0.5vw;
-  & .checkbox_wrapper {
+  .checkbox_wrapper {
     background-position: center;
     background-size: cover;
     background-origin: border-box;
@@ -130,12 +151,14 @@ fieldset {
     text-align: center;
     place-items: center;
     border-radius: 4px;
-    & label {
+    font-size: 1.5rem;
+    text-shadow: v.$text-shadow;
+    label {
       grid-area: 1/1;
       z-index: 100;
       color: white;
-      font-size: 1.5rem;
       pointer-events: none;
+      font-family: uniform;
     }
   }
 }
@@ -147,74 +170,43 @@ input[type="checkbox"] {
   height: 100%;
   grid-area: 1/1;
   background-color: darkgray;
-  opacity: 50%;
+  opacity: 75%;
+  transition: transition(fast);
+  &:checked {
+    opacity: 0;
+  }
+  &:hover {
+    opacity: 0;
+  }
+  label {
+    width: 100%;
+  }
 }
 
-input[type="checkbox"]:checked {
-  opacity: 0;
-}
-
-input[type="checkbox"] label {
+#selection {
   width: 100%;
+  height: 25%;
+  text-align: center;
+  color: v.$text-color;
+  .selected_boxes {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    gap: 0.5vw;
+    label {
+      color: white;
+      font-size: 0.6rem;
+      font-weight: weight(bold);
+      grid-area: 2/2;
+    }
+    > * {
+      background-size: cover;
+      width: 5vw;
+      height: 3vw;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      grid-row: 1fr auto 1fr;
+    }
+  }
 }
-
-/* TYPES BILLEDER */
-
-/* #wrapper_fps {
-  background-image: url(/Images/types/fps.jpg);
-}
-
-#wrapper_mmorpg {
-  background-image: url(/Images/types/mmorpg.jpg);
-}
-
-#wrapper_sports {
-  background-image: url(/Images/types/sports.jpg);
-}
-
-#wrapper_racing {
-  background-image: url(/Images/types/racing.jpg);
-}
-
-#wrapper_tower_defense {
-  background-image: url(/Images/types/towerdefense.jpg);
-}
-
-#wrapper_simulation {
-  background-image: url(/Images/types/simulation.jpg);
-}
-
-#wrapper_role_playing {
-  background-image: url(/Images/types/roleplaying.png);
-}
-
-#wrapper_adventure {
-  background-image: url(/Images/types/adventure.jpg);
-}
-
-#wrapper_survival {
-  background-image: url(/Images/types/survival.jpg);
-}
-
-#wrapper_fighting {
-  background-image: url(/Images/types/fighting.jpg);
-}
-
-#wrapper_battle_royale {
-  background-image: url(/Images/types/battleroyale.jpg);
-}
-
-#wrapper_rhythm {
-  background-image: url(/Images/types/rhythm.jpg);
-}
-
-#wrapper_platform {
-  background-image: url(/Images/types/platform.png);
-} */
-
-/* GAMES BILLEDER */
-
-/* #wrapper_csgo {
-  background-image: url(/Images/games/csgo.jpg);
-}
- */
